@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   FEATURE_IMAGE_STYLES,
   IMAGE_CARD_STYLES,
@@ -15,8 +15,9 @@ import { useDrag, useDrop } from "react-dnd";
 import { CHECKBOX_STYLES } from "../styles/CheckBoxStyles";
 
 export default function ImageCard(props: ImageCardProps) {
-  const { img, moveImage, findImage } = props;
+  const { img, moveImage, findImage, handleImageSelection } = props;
   const { id, src } = img;
+  const [selectedImage, setSelectedImage] = useState(false);
 
   const originalIndex = findImage(id).index;
   const [{ isDragging }, drag] = useDrag(
@@ -62,7 +63,13 @@ export default function ImageCard(props: ImageCardProps) {
     >
       <div className="relative group">
         <label className="cursor-pointer">
-          <div className={CHECKBOX_STYLES}>
+          <div
+            className={CHECKBOX_STYLES}
+            onClick={() => {
+              setSelectedImage(!selectedImage);
+              handleImageSelection(img, !selectedImage);
+            }}
+          >
             <input type="checkbox" />
           </div>
           <div className={IMAGE_OVERLAY_CONTAINER_STYLES}>

@@ -8,4 +8,6 @@ export interface ImageCardProps {
     index: number;
   };
   moveImage: (id: string, atIndex: number) => void;
+
+  handleImageSelection: any;
 }

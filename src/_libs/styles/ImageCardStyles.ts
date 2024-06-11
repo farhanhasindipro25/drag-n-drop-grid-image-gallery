@@ -11,3 +11,6 @@ export const IMAGE_OVERLAY_STYLES =
 
 export const IMAGE_OVERLAY_CONTAINER_STYLES =
   "w-full h-full overflow-hidden relative";
+
+export const SELECT_IMAGE_STYLES =
+  "group-hover:opacity-100 bg-black opacity-20 transition-opacity";
