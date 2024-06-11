@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import DragAndDropProvider from "@/_libs/services/DragAndDropProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="bg-gray-100 w-full h-full">{children}</main>
+        <main className="bg-gray-100 w-full h-full">
+          <DragAndDropProvider>{children}</DragAndDropProvider>
+        </main>
       </body>
     </html>
   );
