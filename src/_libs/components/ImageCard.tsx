@@ -6,6 +6,7 @@ import {
   IMAGE_OVERLAY_CONTAINER_STYLES,
   IMAGE_OVERLAY_STYLES,
   IMAGE_STYLES,
+  SELECT_IMAGE_STYLES,
 } from "../styles/ImageCardStyles";
 
 import cn from "../utils/cn";
@@ -72,7 +73,13 @@ export default function ImageCard(props: ImageCardProps) {
           >
             <input type="checkbox" />
           </div>
-          <div className={IMAGE_OVERLAY_CONTAINER_STYLES}>
+          <div
+            className={cn(
+              `${IMAGE_OVERLAY_CONTAINER_STYLES} ${
+                selectedImage ? SELECT_IMAGE_STYLES : ""
+              }`
+            )}
+          >
             <Image
               src={src}
               alt={`Image-${id}`}
