@@ -74,7 +74,7 @@ export default function ImageCard(props: ImageCardProps) {
               priority
               className={IMAGE_STYLES}
             />
-            <div className={IMAGE_OVERLAY_STYLES}></div>
+            <div className={IMAGE_OVERLAY_STYLES} />
           </div>
         </label>
       </div>
