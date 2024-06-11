@@ -6,6 +6,7 @@ import EmptyState from "./EmptyState";
 import { useDrop } from "react-dnd";
 import { ITEM_TYPES } from "../constants/ItemTypes";
 import update from "immutability-helper";
+import { GALLERY_CONTAINER_STYLES, GALLERY_GRID_STYLES } from "../styles/GalleryStyles";
 
 export default function Gallery() {
   const [images, setImages] = useState(GALLERY_IMAGES);
@@ -42,14 +43,14 @@ export default function Gallery() {
   }, [drop]);
 
   return (
-    <section className="w-full border border-gray-300 rounded-lg bg-white divide-y divide-gray-300">
+    <section className={GALLERY_CONTAINER_STYLES}>
       <div className="p-4">
         <h2 className="text-lg font-semibold text-gray-700">Gallery</h2>
       </div>
       <div className="p-4">
         {images.length > 0 ? (
           <div
-            className="grid md:grid-cols-4 lg:grid-cols-5 gap-4"
+            className={GALLERY_GRID_STYLES}
             ref={dropRef}
           >
             {images.map((img) => (

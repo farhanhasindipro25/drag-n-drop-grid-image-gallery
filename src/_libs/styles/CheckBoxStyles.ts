@@ -1,0 +1,1 @@
+export const CHECKBOX_STYLES="absolute top-2 left-2 z-10"

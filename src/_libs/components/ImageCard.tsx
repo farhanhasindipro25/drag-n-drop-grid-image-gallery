@@ -3,6 +3,7 @@ import React from "react";
 import {
   FEATURE_IMAGE_STYLES,
   IMAGE_CARD_STYLES,
+  IMAGE_OVERLAY_CONTAINER_STYLES,
   IMAGE_OVERLAY_STYLES,
   IMAGE_STYLES,
 } from "../styles/ImageCardStyles";
@@ -11,6 +12,7 @@ import cn from "../utils/cn";
 import { ImageCardProps } from "../interfaces/ImageCardProps";
 import { ITEM_TYPES } from "../constants/ItemTypes";
 import { useDrag, useDrop } from "react-dnd";
+import { CHECKBOX_STYLES } from "../styles/CheckBoxStyles";
 
 export default function ImageCard(props: ImageCardProps) {
   const { img, moveImage, findImage } = props;
@@ -60,10 +62,10 @@ export default function ImageCard(props: ImageCardProps) {
     >
       <div className="relative group">
         <label className="cursor-pointer">
-          <div className="absolute top-2 left-2 z-10">
+          <div className={CHECKBOX_STYLES}>
             <input type="checkbox" />
           </div>
-          <div className={`w-full h-full overflow-hidden relative`}>
+          <div className={IMAGE_OVERLAY_CONTAINER_STYLES}>
             <Image
               src={src}
               alt={`Image-${id}`}
