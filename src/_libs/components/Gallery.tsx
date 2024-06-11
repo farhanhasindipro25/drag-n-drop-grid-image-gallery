@@ -83,7 +83,7 @@ export default function Gallery() {
             {handleNumericalCasesInWordsForImages(selectedImages.length)}
           </h2>
           {selectedImages.length > 0 ? (
-            <Button title="delete" onClick={handleDeleteImages} />
+            <Button title="DELETE" onClick={handleDeleteImages} />
           ) : null}
         </div>
       </div>
