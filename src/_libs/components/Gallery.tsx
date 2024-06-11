@@ -14,6 +14,8 @@ import ImageUploader from "./ImageUploader";
 import { SelectedImageInterface } from "../interfaces/SelectedImageInterface";
 import toast from "react-hot-toast";
 import { handleDynamicToastMsg } from "../utils/handleDynamicToastMsg";
+import { handleNumericalCasesInWordsForImages } from "../utils/handleNumericalCasesInWordsForImages";
+import Button from "./Button";
 
 export default function Gallery() {
   const [images, setImages] = useState(GALLERY_IMAGES);
@@ -78,16 +80,10 @@ export default function Gallery() {
         <h2 className="text-lg font-semibold text-gray-700">Gallery</h2>
         <div className="flex justify-between items-center">
           <h2 className="text-base font-medium text-gray-500">
-            {/* {handleNumericalCasesInWordsForImages(selectedImages.length)} */}
+            {handleNumericalCasesInWordsForImages(selectedImages.length)}
           </h2>
           {selectedImages.length > 0 ? (
-            <button
-              onClick={handleDeleteImages}
-              type="submit"
-              className="text-sm font-semibold cursor-pointer bg-red-500 px-5 py-3 rounded-md text-white hover:bg-red-600 focus:outline focus:ring-1 focus:ring-offset-1 focus:ring-red-50"
-            >
-              Delete
-            </button>
+            <Button title="delete" onClick={handleDeleteImages} />
           ) : null}
         </div>
       </div>
