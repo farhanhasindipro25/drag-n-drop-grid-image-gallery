@@ -8,8 +8,10 @@ import {
 } from "../styles/ImageCardStyles";
 
 import cn from "../utils/cn";
+import { ImageCardProps } from "../interfaces/ImageCardProps";
 
-export default function ImageCard({ img }: any) {
+export default function ImageCard(props: ImageCardProps) {
+  const { img } = props;
   const { id, src } = img;
   return (
     <div className={cn(`${IMAGE_CARD_STYLES} ${FEATURE_IMAGE_STYLES}`)}>

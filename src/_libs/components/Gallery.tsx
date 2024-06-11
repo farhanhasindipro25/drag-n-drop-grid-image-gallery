@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { GALLERY_IMAGES } from "../statics/galleryImages";
 import ImageCard from "./ImageCard";
+import EmptyState from "./EmptyState";
 
 export default function Gallery() {
   const [images, setImages] = useState(GALLERY_IMAGES);
@@ -18,9 +19,7 @@ export default function Gallery() {
             ))}
           </div>
         ) : (
-          <div>
-            <h1>No image found in the gallery. </h1>
-          </div>
+          <EmptyState />
         )}
       </div>
     </section>
