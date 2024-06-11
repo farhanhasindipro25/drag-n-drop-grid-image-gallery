@@ -1,6 +1,6 @@
 # Responsive Image Gallery
 
-**LIVE LINK: https://orders-one-thread.vercel.app/api/v1**
+**LIVE LINK: https://responsive-image-gallery-sage.vercel.app/**
 
 ## FEATURES
 
@@ -86,6 +86,7 @@ setImages(
 ```
 
 Here,
+
 - The `update` function from immutability-helper is called with the original images state and an update object.
 - The `$splice` command is used to splice the images array, removing the image from its current position (index) and inserting it at a new position (atIndex).
 - This results in a new array being created with the desired changes, while leaving the original images array unchanged.
