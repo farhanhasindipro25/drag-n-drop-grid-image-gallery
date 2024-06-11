@@ -1,10 +1,10 @@
 export interface ImageCardProps {
   img: {
-    id: number;
+    id: string;
     src: string;
   };
   findImage: (id: string) => {
-    image: { id: number; src: string };
+    image: { id: string; src: string };
     index: number;
   };
   moveImage: (id: string, atIndex: number) => void;

@@ -2,7 +2,7 @@ export const IMAGE_CARD_STYLES =
   "border cursor-pointer border-gray-300 rounded-md";
 
 export const IMAGE_STYLES =
-  "rounded-md cursor-pointer object-cover object-center aspect-auto";
+  "rounded-md w-full cursor-pointer object-cover object-center aspect-auto";
 
 export const FEATURE_IMAGE_STYLES = "first:col-span-2 first:row-span-2";
 

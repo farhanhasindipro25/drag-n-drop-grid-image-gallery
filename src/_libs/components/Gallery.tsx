@@ -48,7 +48,10 @@ export default function Gallery() {
       </div>
       <div className="p-4">
         {images.length > 0 ? (
-          <div className="grid grid-cols-5 gap-4" ref={dropRef}>
+          <div
+            className="grid md:grid-cols-4 lg:grid-cols-5 gap-4"
+            ref={dropRef}
+          >
             {images.map((img) => (
               <ImageCard
                 key={img.id}

@@ -9,12 +9,55 @@ import {
 
 import cn from "../utils/cn";
 import { ImageCardProps } from "../interfaces/ImageCardProps";
+import { ITEM_TYPES } from "../constants/ItemTypes";
+import { useDrag, useDrop } from "react-dnd";
 
 export default function ImageCard(props: ImageCardProps) {
-  const { img } = props;
+  const { img, moveImage, findImage } = props;
   const { id, src } = img;
+
+  const originalIndex = findImage(id).index;
+  const [{ isDragging }, drag] = useDrag(
+    () => ({
+      type: ITEM_TYPES.IMAGE,
+      item: { id, originalIndex },
+      collect: (monitor) => ({
+        isDragging: monitor.isDragging(),
+      }),
+      end: (item, monitor) => {
+        const { id: droppedId, originalIndex } = item;
+        const didDrop = monitor.didDrop();
+        if (!didDrop) {
+          moveImage(droppedId, originalIndex);
+        }
+      },
+    }),
+    [id, originalIndex, moveImage]
+  );
+  const [, drop] = useDrop(
+    () => ({
+      accept: ITEM_TYPES.IMAGE,
+      hover(item: { id: string }) {
+        const draggedId = item.id;
+        if (draggedId !== id) {
+          const { index: overIndex } = findImage(id);
+          moveImage(draggedId, overIndex);
+        }
+      },
+    }),
+    [findImage, moveImage]
+  );
+
+  const opacity = isDragging ? 0 : 1;
   return (
-    <div className={cn(`${IMAGE_CARD_STYLES} ${FEATURE_IMAGE_STYLES}`)}>
+    <div
+      className={cn(`${IMAGE_CARD_STYLES} ${FEATURE_IMAGE_STYLES}`)}
+      ref={(node) => {
+        drag(node);
+        drop(node);
+      }}
+      style={{ opacity }}
+    >
       <div className="relative group">
         <label className="cursor-pointer">
           <div className="absolute top-2 left-2 z-10">
